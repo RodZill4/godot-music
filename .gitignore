@@ -6,3 +6,6 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
+sound_fonts/Arachno.sf2
+sound_fonts/FluidR3Mono_GM.sf3
+sound_fonts/GeneralUserGS.sf2
