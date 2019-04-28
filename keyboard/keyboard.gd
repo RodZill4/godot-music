@@ -5,7 +5,10 @@ class_name Keyboard
 export(int) var keys = 8 setget set_keys
 export(int) var offset = 0 setget set_offset
 
+var notes
+
 const WHITE_INTERVALS = [ 2, 2, 1, 2, 2, 2, 1 ]
+const IS_WHITE = [ true, false, true, false, true, true, false, true, false, true, false, true]
 
 signal note(note, volume)
 
@@ -18,8 +21,12 @@ func _unhandled_input(event):
 	if event is InputEventMIDI:
 		if event.message == 9:
 			emit_signal("note", event.pitch, event.velocity/127.0)
+			if notes[event.pitch] != null:
+				notes[event.pitch].set_pressed_midi(true)
 		elif event.message == 8:
 			emit_signal("note", event.pitch, 0)
+			if notes[event.pitch] != null:
+				notes[event.pitch].set_pressed_midi(false)
 
 func set_keys(k):
 	keys = k
@@ -32,13 +39,41 @@ func set_offset(o):
 func update_keyboard():
 	for c in get_children():
 		c.queue_free()
+	notes = []
+	for i in range(128):
+		notes.append(null)
+	var next_white = 0
+	var key : Key
+	var current_note = offset
+	if !IS_WHITE[offset % 12]:
+		current_note -= 1
+	var whites = 0
+	while whites < keys:
+		if IS_WHITE[current_note % 12]:
+			key = preload("res://keyboard/key_white.tscn").instance()
+			key.rect_position = Vector2(next_white, 0)
+			whites += 1
+			next_white += key.rect_size.x
+			add_child(key)
+			move_child(key, 0)
+		else:
+			key = preload("res://keyboard/key_black.tscn").instance()
+			key.rect_position = Vector2(next_white-key.rect_size.x/2, 0)
+			add_child(key)
+		key.connect("note", self, "on_note", [ current_note ])
+		notes[current_note] = key
+		current_note += 1
+
+func update_keyboard_old():
+	for c in get_children():
+		c.queue_free()
 	var x = 0
 	var interval = 0
 	var key : Key
 	var starting_note = 0
 	var current_note
 	for i in range(offset):
-		starting_note += [i % WHITE_INTERVALS.size()]
+		starting_note += WHITE_INTERVALS[i % WHITE_INTERVALS.size()]
 	current_note = starting_note
 	for i in range(keys):
 		key = preload("res://keyboard/key_white.tscn").instance()
@@ -63,4 +98,4 @@ func update_keyboard():
 		current_note += WHITE_INTERVALS[(offset + i) % WHITE_INTERVALS.size()]
 
 func on_note(volume, note):
-	emit_signal("note", 48+note, volume)
+	emit_signal("note", note, volume)

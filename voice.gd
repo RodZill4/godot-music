@@ -16,6 +16,7 @@ func _ready():
 	tween.connect("tween_completed", self, "on_tween_completed")
 
 func play_note(note, volume, sample):
+	print("play")
 	current_note = note
 	current_volume = volume
 	current_sample = sample

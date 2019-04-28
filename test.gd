@@ -26,4 +26,6 @@ func on_preset_selected(ID):
 	on_instrument_selected(0)
 
 func on_instrument_selected(ID):
-	$Instrument.set_instrument(sound_font_node.get_instrument($Select/Preset.selected, ID))
+	var instrument = sound_font_node.get_instrument($Select/Preset.selected, ID)
+	if instrument != null:
+		$Instrument.set_instrument(instrument)

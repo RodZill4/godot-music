@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://keyboard/key.gd" type="Script" id=1]
 [ext_resource path="res://keyboard/white_key.tres" type="Theme" id=2]
+[ext_resource path="res://keyboard/white_key_pressed.tres" type="Theme" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.505882, 0.52549, 1, 1 )
@@ -22,5 +23,6 @@ margin_bottom = 197.0
 theme = SubResource( 2 )
 script = ExtResource( 1 )
 key_theme = ExtResource( 2 )
+key_pressed_theme = ExtResource( 3 )
 
 [connection signal="gui_input" from="." to="." method="_on_Key_gui_input"]

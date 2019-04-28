@@ -11,15 +11,17 @@ signal note(volume)
 func _ready():
 	theme = key_theme
 
-func set_pressed_midi(p):
-	if p != pressed:
-		pressed = p
 
 func set_pressed(p):
 	if p != pressed:
 		pressed = p
 		theme = key_pressed_theme if pressed else key_theme
-		emit_signal("note", 1.0 if pressed else 0.0)
+		emit_signal("note", 1.0 if pressed or pressed_midi else 0.0)
+
+func set_pressed_midi(p):
+	if p != pressed_midi:
+		pressed_midi = p
+		theme = key_pressed_theme if pressed or pressed_midi else key_theme
 
 func _on_Key_gui_input(event : InputEvent):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:

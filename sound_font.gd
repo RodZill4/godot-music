@@ -240,7 +240,18 @@ func get_instrument_names(preset_id):
 	return return_value
 
 func get_instrument(preset_id, instrument_index):
-	var instrument_data = prepare_instrument(sound_font.pdta.inst[sound_font.pdta.phdr[preset_id].bags[instrument_index].instrument])
+	if preset_id >= sound_font.pdta.phdr.size():
+		return null
+	var preset = sound_font.pdta.phdr[preset_id]
+	if instrument_index >= preset.bags.size():
+		return null
+	if !preset.bags[instrument_index].has("instrument"):
+		print(preset.bags[instrument_index])
+		return null
+	var instrument = preset.bags[instrument_index].instrument
+	if instrument >= sound_font.pdta.inst.size():
+		return null
+	var instrument_data = prepare_instrument(sound_font.pdta.inst[instrument])
 	print(instrument_data)
 	return instrument_data
 

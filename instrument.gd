@@ -28,7 +28,9 @@ func play(note : int, volume : float):
 					voice.play_note(note, volume, b)
 					break
 			playing[note] = voice
-	else:
+		else:
+			print("no available voice")
+	elif playing.has(note):
 		playing[note].stop_note()
 
 func set_instrument(data):
@@ -37,3 +39,4 @@ func set_instrument(data):
 func on_voice_stopped(voice):
 	voices.append(voice)
 	playing.erase(voice.current_note)
+	print("Voice released")

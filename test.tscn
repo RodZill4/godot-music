@@ -9,21 +9,23 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-sound_font = "res://sound_fonts/TimGM6mb.sf2"
+sound_font = "res://sound_fonts/arachno.sf2"
 
 [node name="Keyboard" parent="." instance=ExtResource( 2 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -355.985
-margin_top = -198.883
-margin_right = 364.015
-margin_bottom = -1.883
+margin_left = -356.0
+margin_top = -200.0
+margin_right = 364.0
+margin_bottom = -3.0
 rect_min_size = Vector2( 720, 197 )
 keys = 15
+offset = 48
 
 [node name="Instrument" parent="." instance=ExtResource( 3 )]
+polyphony = 4
 
 [node name="SoundFont" parent="." instance=ExtResource( 4 )]
 
@@ -48,30 +50,30 @@ size_flags_horizontal = 6
 align = 1
 
 [connection signal="note" from="Keyboard" to="." method="_on_Keyboard_note"]
-[connection signal="gui_input" from="Keyboard/Key" to="Keyboard/Key" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key2" to="Keyboard/Key2" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key3" to="Keyboard/Key3" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key4" to="Keyboard/Key4" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key5" to="Keyboard/Key5" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key6" to="Keyboard/Key6" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key7" to="Keyboard/Key7" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key8" to="Keyboard/Key8" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key9" to="Keyboard/Key9" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key10" to="Keyboard/Key10" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key11" to="Keyboard/Key11" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key12" to="Keyboard/Key12" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key13" to="Keyboard/Key13" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key14" to="Keyboard/Key14" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key15" to="Keyboard/Key15" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key16" to="Keyboard/Key16" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key17" to="Keyboard/Key17" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key18" to="Keyboard/Key18" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key19" to="Keyboard/Key19" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key20" to="Keyboard/Key20" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key21" to="Keyboard/Key21" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key22" to="Keyboard/Key22" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key23" to="Keyboard/Key23" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key24" to="Keyboard/Key24" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key25" to="Keyboard/Key25" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key50" to="Keyboard/Key50" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key49" to="Keyboard/Key49" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key47" to="Keyboard/Key47" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key45" to="Keyboard/Key45" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key43" to="Keyboard/Key43" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key42" to="Keyboard/Key42" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key40" to="Keyboard/Key40" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key38" to="Keyboard/Key38" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key37" to="Keyboard/Key37" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key35" to="Keyboard/Key35" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key33" to="Keyboard/Key33" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key31" to="Keyboard/Key31" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key30" to="Keyboard/Key30" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key28" to="Keyboard/Key28" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key26" to="Keyboard/Key26" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key27" to="Keyboard/Key27" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key29" to="Keyboard/Key29" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key32" to="Keyboard/Key32" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key34" to="Keyboard/Key34" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key36" to="Keyboard/Key36" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key39" to="Keyboard/Key39" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key41" to="Keyboard/Key41" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key44" to="Keyboard/Key44" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key46" to="Keyboard/Key46" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Keyboard/Key48" to="Keyboard/Key48" method="_on_Key_gui_input"]
 [connection signal="item_selected" from="Select/Preset" to="." method="on_preset_selected"]
 [connection signal="item_selected" from="Select/Instrument" to="." method="on_instrument_selected"]
