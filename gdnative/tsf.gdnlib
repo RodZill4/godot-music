@@ -1,0 +1,18 @@
+[general]
+
+singleton=false
+load_once=true
+symbol_prefix="godot_"
+reloadable=false
+
+[entry]
+
+OSX.64="res://gdnative/bin/osx/libtsf.dylib"
+Windows.64="res://gdnative/bin/win64/libtsf.dll"
+X11.64="res://gdnative/bin/x11/libtsf.so"
+
+[dependencies]
+
+OSX.64=[  ]
+Windows.64=[  ]
+X11.64=[  ]

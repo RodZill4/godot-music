@@ -12,4 +12,3 @@ border_color = Color( 0.533333, 0.533333, 0.533333, 1 )
 Panel/styles/panel = SubResource( 1 )
 Panel/styles/panelf = null
 Panel/styles/panelnc = null
-

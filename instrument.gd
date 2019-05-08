@@ -23,6 +23,8 @@ func play(note : int, volume : float):
 			else:
 				voice = voices.pop_back()
 			for b in instrument_data.bags:
+				if !b.has("sample"):
+					continue
 				if b.key_min <= note && b.key_max >= note:
 					#print(b)
 					voice.play_note(note, volume, b)

@@ -1,9 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://test.gd" type="Script" id=1]
-[ext_resource path="res://keyboard/keyboard.tscn" type="PackedScene" id=2]
-[ext_resource path="res://instrument.tscn" type="PackedScene" id=3]
-[ext_resource path="res://sound_font.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gdnative/sound_font.gdns" type="Script" id=2]
+[ext_resource path="res://keyboard/keyboard.tscn" type="PackedScene" id=3]
+
+[sub_resource type="AudioStreamGenerator" id=1]
+buffer_length = 0.05
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -11,69 +13,88 @@ anchor_bottom = 1.0
 script = ExtResource( 1 )
 sound_font = "res://sound_fonts/arachno.sf2"
 
-[node name="Keyboard" parent="." instance=ExtResource( 2 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+[node name="TSF" type="Node" parent="."]
+script = ExtResource( 2 )
+sound_font = "res://sound_fonts/timGM6mb.sf2"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 1 )
+autoplay = true
+
+[node name="Container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -356.0
-margin_top = -200.0
-margin_right = 364.0
-margin_bottom = -3.0
-rect_min_size = Vector2( 720, 197 )
-keys = 15
-offset = 48
 
-[node name="Instrument" parent="." instance=ExtResource( 3 )]
-polyphony = 4
-
-[node name="SoundFont" parent="." instance=ExtResource( 4 )]
-
-[node name="Select" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -20.0
-margin_right = 20.0
-margin_bottom = 40.0
-
-[node name="Preset" type="OptionButton" parent="Select"]
-margin_right = 41.0
+[node name="Select" type="HBoxContainer" parent="Container"]
+margin_right = 800.0
 margin_bottom = 20.0
-size_flags_horizontal = 6
+
+[node name="Button" type="Button" parent="Container/Select"]
+margin_right = 398.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Play Midi File"
+
+[node name="Preset" type="OptionButton" parent="Container/Select"]
+margin_left = 402.0
+margin_right = 800.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
 align = 1
 
-[node name="Instrument" type="OptionButton" parent="Select"]
-margin_top = 24.0
-margin_right = 41.0
-margin_bottom = 44.0
-size_flags_horizontal = 6
-align = 1
+[node name="ScrolledKeyboard" type="VBoxContainer" parent="Container"]
+margin_left = 17.0
+margin_top = 421.0
+margin_right = 782.0
+margin_bottom = 600.0
+size_flags_horizontal = 4
+size_flags_vertical = 10
 
-[connection signal="note" from="Keyboard" to="." method="_on_Keyboard_note"]
-[connection signal="gui_input" from="Keyboard/Key50" to="Keyboard/Key50" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key49" to="Keyboard/Key49" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key47" to="Keyboard/Key47" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key45" to="Keyboard/Key45" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key43" to="Keyboard/Key43" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key42" to="Keyboard/Key42" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key40" to="Keyboard/Key40" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key38" to="Keyboard/Key38" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key37" to="Keyboard/Key37" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key35" to="Keyboard/Key35" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key33" to="Keyboard/Key33" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key31" to="Keyboard/Key31" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key30" to="Keyboard/Key30" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key28" to="Keyboard/Key28" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key26" to="Keyboard/Key26" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key27" to="Keyboard/Key27" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key29" to="Keyboard/Key29" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key32" to="Keyboard/Key32" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key34" to="Keyboard/Key34" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key36" to="Keyboard/Key36" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key39" to="Keyboard/Key39" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key41" to="Keyboard/Key41" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key44" to="Keyboard/Key44" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key46" to="Keyboard/Key46" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Keyboard/Key48" to="Keyboard/Key48" method="_on_Key_gui_input"]
-[connection signal="item_selected" from="Select/Preset" to="." method="on_preset_selected"]
-[connection signal="item_selected" from="Select/Instrument" to="." method="on_instrument_selected"]
+[node name="KeyboardScroll" type="HScrollBar" parent="Container/ScrolledKeyboard"]
+margin_right = 765.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+max_value = 128.0
+step = 1.0
+page = 12.0
+value = 60.0
+rounded = true
+
+[node name="Keyboard" parent="Container/ScrolledKeyboard" instance=ExtResource( 3 )]
+margin_top = 29.0
+margin_right = 765.0
+margin_bottom = 179.0
+rect_min_size = Vector2( 765, 150 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+keys = 15
+offset = 60
+[connection signal="pressed" from="Container/Select/Button" to="." method="_on_Button_pressed"]
+[connection signal="item_selected" from="Container/Select/Preset" to="." method="on_preset_selected"]
+[connection signal="value_changed" from="Container/ScrolledKeyboard/KeyboardScroll" to="Container/ScrolledKeyboard/Keyboard" method="set_offset"]
+[connection signal="note" from="Container/ScrolledKeyboard/Keyboard" to="." method="_on_Keyboard_note"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key49" to="Container/ScrolledKeyboard/Keyboard/Key49" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key48" to="Container/ScrolledKeyboard/Keyboard/Key48" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key42" to="Container/ScrolledKeyboard/Keyboard/Key42" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key40" to="Container/ScrolledKeyboard/Keyboard/Key40" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key35" to="Container/ScrolledKeyboard/Keyboard/Key35" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key34" to="Container/ScrolledKeyboard/Keyboard/Key34" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key28" to="Container/ScrolledKeyboard/Keyboard/Key28" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key26" to="Container/ScrolledKeyboard/Keyboard/Key26" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key25" to="Container/ScrolledKeyboard/Keyboard/Key25" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key23" to="Container/ScrolledKeyboard/Keyboard/Key23" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key21" to="Container/ScrolledKeyboard/Keyboard/Key21" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key19" to="Container/ScrolledKeyboard/Keyboard/Key19" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key18" to="Container/ScrolledKeyboard/Keyboard/Key18" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key16" to="Container/ScrolledKeyboard/Keyboard/Key16" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key14" to="Container/ScrolledKeyboard/Keyboard/Key14" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key15" to="Container/ScrolledKeyboard/Keyboard/Key15" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key17" to="Container/ScrolledKeyboard/Keyboard/Key17" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key20" to="Container/ScrolledKeyboard/Keyboard/Key20" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key22" to="Container/ScrolledKeyboard/Keyboard/Key22" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key24" to="Container/ScrolledKeyboard/Keyboard/Key24" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key27" to="Container/ScrolledKeyboard/Keyboard/Key27" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key33" to="Container/ScrolledKeyboard/Keyboard/Key33" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key39" to="Container/ScrolledKeyboard/Keyboard/Key39" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key41" to="Container/ScrolledKeyboard/Keyboard/Key41" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key47" to="Container/ScrolledKeyboard/Keyboard/Key47" method="_on_Key_gui_input"]

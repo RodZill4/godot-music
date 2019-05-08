@@ -39,8 +39,7 @@ func play_note(note, volume, sample):
 		tween.interpolate_property(self, "volume_db", peak_volume_db, peak_volume_db, hold, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, delay+attack)
 	if decay > 0.0:
 		tween.interpolate_property(self, "volume_db", peak_volume_db, peak_volume_db-sustain, decay, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, delay+attack+hold)
-	if delay+attack == 0.0:
-		volume_db = peak_volume_db
+	volume_db = peak_volume_db
 	.play()
 	tween.start()
 

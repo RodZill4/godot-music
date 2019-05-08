@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://keyboard/keyboard.gd"
 }, {
+"base": "Node",
+"class": "SoundFont",
+"language": "NativeScript",
+"path": "res://gdnative/sound_font.gdns"
+}, {
 "base": "AudioStreamPlayer",
 "class": "Voice",
 "language": "GDScript",
@@ -27,14 +32,19 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Key": "",
 "Keyboard": "",
+"SoundFont": "",
 "Voice": ""
 }
 
 [application]
 
-config/name="godot_music"
+config/name="Music Lab"
 run/main_scene="res://test.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=800
 
 [rendering]
 

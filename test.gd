@@ -3,29 +3,23 @@ extends Control
 export var sound_font : String = "res://TimGM6mb.sf2"
 var key_shift = 0
 
-onready var sound_font_node = $SoundFont
+onready var stream_player : AudioStreamPlayer = $AudioStreamPlayer
+onready var stream_playback : AudioStreamPlayback = stream_player.get_stream_playback()
 
 func _ready():
-	sound_font_node.load(sound_font)
-	$Select/Preset.clear()
-	for n in sound_font_node.get_preset_names():
-		$Select/Preset.add_item(n)
+	$Container/Select/Preset.clear()
+	for n in $TSF.get_preset_names():
+		$Container/Select/Preset.add_item(n)
 	on_preset_selected(0)
-	on_instrument_selected(0)
+
+func _process(delta):
+	stream_playback.push_buffer($TSF.get_buffer(stream_playback.get_frames_available()))
 
 func _on_Keyboard_note(note, volume):
-	$Instrument.play(note, volume)
-
-func _on_InstrumentSelect_item_selected(ID):
-	sound_font_node.get_instrument(ID)
+	$TSF.play_note($Container/Select/Preset.selected, note, volume)
 
 func on_preset_selected(ID):
-	$Select/Instrument.clear()
-	for n in sound_font_node.get_instrument_names(ID):
-		$Select/Instrument.add_item(n)
-	on_instrument_selected(0)
+	pass
 
-func on_instrument_selected(ID):
-	var instrument = sound_font_node.get_instrument($Select/Preset.selected, ID)
-	if instrument != null:
-		$Instrument.set_instrument(instrument)
+func _on_Button_pressed():
+	$TSF.play_midi("pathetique.mid")

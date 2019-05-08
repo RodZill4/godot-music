@@ -3,22 +3,21 @@
 [ext_resource path="res://keyboard/keyboard.gd" type="Script" id=1]
 
 [node name="Keyboard" type="Control"]
-margin_top = -1.22775
-margin_right = 384.0
-margin_bottom = 195.772
-rect_min_size = Vector2( 384, 197 )
+margin_top = -1.0
+margin_right = 408.0
+margin_bottom = 149.0
 script = ExtResource( 1 )
 
+[connection signal="gui_input" from="Key39" to="Key39" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Key38" to="Key38" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Key36" to="Key36" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Key34" to="Key34" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Key32" to="Key32" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Key31" to="Key31" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Key29" to="Key29" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Key14" to="Key14" method="_on_Key_gui_input"]
 [connection signal="gui_input" from="Key15" to="Key15" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Key16" to="Key16" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Key17" to="Key17" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Key18" to="Key18" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Key19" to="Key19" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Key20" to="Key20" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Key21" to="Key21" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Key22" to="Key22" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Key23" to="Key23" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Key24" to="Key24" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Key25" to="Key25" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Key26" to="Key26" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Key27" to="Key27" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Key30" to="Key30" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Key33" to="Key33" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Key35" to="Key35" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Key37" to="Key37" method="_on_Key_gui_input"]

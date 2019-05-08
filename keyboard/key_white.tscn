@@ -18,8 +18,8 @@ Panel/styles/panelf = null
 Panel/styles/panelnc = null
 
 [node name="Key" type="Panel"]
-margin_right = 48.0
-margin_bottom = 197.0
+margin_right = 51.0
+margin_bottom = 150.0
 theme = SubResource( 2 )
 script = ExtResource( 1 )
 key_theme = ExtResource( 2 )

@@ -236,7 +236,8 @@ func get_instrument_names(preset_id):
 	var preset = sound_font.pdta.phdr[preset_id]
 	var return_value = []
 	for b in preset.bags:
-		return_value.append(sound_font.pdta.inst[b.instrument].name)
+		if b.has("instrument"):
+			return_value.append(sound_font.pdta.inst[b.instrument].name)
 	return return_value
 
 func get_instrument(preset_id, instrument_index):

@@ -5,8 +5,8 @@
 [ext_resource path="res://keyboard/black_key_pressed.tres" type="Theme" id=3]
 
 [node name="Key" type="Panel"]
-margin_right = 34.0
-margin_bottom = 125.0
+margin_right = 40.0
+margin_bottom = 75.0
 script = ExtResource( 1 )
 key_theme = ExtResource( 2 )
 key_pressed_theme = ExtResource( 3 )

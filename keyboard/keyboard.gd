@@ -33,8 +33,12 @@ func set_keys(k):
 	update_keyboard()
 	
 func set_offset(o):
-	offset = o
+	offset = int(o)
 	update_keyboard()
+
+func _get_minimum_size():
+	var last_note : Control = get_child(0)
+	return last_note.rect_position+last_note.rect_size
 
 func update_keyboard():
 	for c in get_children():
@@ -63,6 +67,8 @@ func update_keyboard():
 		key.connect("note", self, "on_note", [ current_note ])
 		notes[current_note] = key
 		current_note += 1
+	rect_min_size = _get_minimum_size()
+	rect_size = rect_min_size
 
 func update_keyboard_old():
 	for c in get_children():
@@ -99,3 +105,7 @@ func update_keyboard_old():
 
 func on_note(volume, note):
 	emit_signal("note", note, volume)
+
+
+func set_scrolling(value):
+	pass # Replace with function body.

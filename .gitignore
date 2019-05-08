@@ -6,7 +6,16 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
+
+gdnative/.vscode
+
 sound_fonts/Arachno.sf2
 sound_fonts/FluidR3Mono_GM.sf3
 sound_fonts/GeneralUserGS.sf2
 sound_fonts/toh.sf2
+sound_fonts/piano.sf2
+
+gdnative/bin/win64/libtsf.exp
+gdnative/bin/win64/libtsf.lib
+gdnative/godot-cpp
+*.obj
