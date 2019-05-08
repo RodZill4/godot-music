@@ -30,14 +30,25 @@ margin_right = 800.0
 margin_bottom = 20.0
 
 [node name="Button" type="Button" parent="Container/Select"]
-margin_right = 398.0
+margin_right = 264.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 toggle_mode = true
 text = "Play Midi File"
 
+[node name="HSlider" type="HSlider" parent="Container/Select"]
+margin_left = 268.0
+margin_right = 532.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = 0.2
+max_value = 10.0
+step = 0.05
+value = 1.0
+ticks_on_borders = true
+
 [node name="Preset" type="OptionButton" parent="Container/Select"]
-margin_left = 402.0
+margin_left = 536.0
 margin_right = 800.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
@@ -71,6 +82,7 @@ size_flags_vertical = 0
 keys = 15
 offset = 60
 [connection signal="toggled" from="Container/Select/Button" to="." method="_on_Button_toggled"]
+[connection signal="value_changed" from="Container/Select/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="item_selected" from="Container/Select/Preset" to="." method="on_preset_selected"]
 [connection signal="value_changed" from="Container/ScrolledKeyboard/KeyboardScroll" to="Container/ScrolledKeyboard/Keyboard" method="set_offset"]
 [connection signal="note" from="Container/ScrolledKeyboard/Keyboard" to="." method="_on_Keyboard_note"]

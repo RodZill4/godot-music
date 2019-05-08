@@ -16,7 +16,7 @@ func _process(delta):
 	stream_playback.push_buffer($TSF.get_buffer(stream_playback.get_frames_available()))
 
 func _on_Keyboard_note(note, volume):
-	$TSF.play_note($Container/Select/Preset.selected, note, volume)
+	$TSF.note_on($Container/Select/Preset.selected, note, volume)
 
 func on_preset_selected(ID):
 	pass
@@ -26,3 +26,6 @@ func _on_Button_toggled(button_pressed):
 		$TSF.play_midi("pathetique.mid")
 	else:
 		$TSF.play_midi("")
+
+func _on_HSlider_value_changed(value):
+	$TSF.midi_speed = value
