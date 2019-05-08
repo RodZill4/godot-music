@@ -21,5 +21,8 @@ func _on_Keyboard_note(note, volume):
 func on_preset_selected(ID):
 	pass
 
-func _on_Button_pressed():
-	$TSF.play_midi("pathetique.mid")
+func _on_Button_toggled(button_pressed):
+	if button_pressed:
+		$TSF.play_midi("pathetique.mid")
+	else:
+		$TSF.play_midi("")

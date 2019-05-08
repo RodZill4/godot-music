@@ -15,7 +15,7 @@ sound_font = "res://sound_fonts/arachno.sf2"
 
 [node name="TSF" type="Node" parent="."]
 script = ExtResource( 2 )
-sound_font = "res://sound_fonts/timGM6mb.sf2"
+sound_font = "res://sound_fonts/TimGM6mb.sf2"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 1 )
@@ -33,6 +33,7 @@ margin_bottom = 20.0
 margin_right = 398.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
+toggle_mode = true
 text = "Play Midi File"
 
 [node name="Preset" type="OptionButton" parent="Container/Select"]
@@ -69,32 +70,32 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 keys = 15
 offset = 60
-[connection signal="pressed" from="Container/Select/Button" to="." method="_on_Button_pressed"]
+[connection signal="toggled" from="Container/Select/Button" to="." method="_on_Button_toggled"]
 [connection signal="item_selected" from="Container/Select/Preset" to="." method="on_preset_selected"]
 [connection signal="value_changed" from="Container/ScrolledKeyboard/KeyboardScroll" to="Container/ScrolledKeyboard/Keyboard" method="set_offset"]
 [connection signal="note" from="Container/ScrolledKeyboard/Keyboard" to="." method="_on_Keyboard_note"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key50" to="Container/ScrolledKeyboard/Keyboard/Key50" method="_on_Key_gui_input"]
 [connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key49" to="Container/ScrolledKeyboard/Keyboard/Key49" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key48" to="Container/ScrolledKeyboard/Keyboard/Key48" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key47" to="Container/ScrolledKeyboard/Keyboard/Key47" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key45" to="Container/ScrolledKeyboard/Keyboard/Key45" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key43" to="Container/ScrolledKeyboard/Keyboard/Key43" method="_on_Key_gui_input"]
 [connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key42" to="Container/ScrolledKeyboard/Keyboard/Key42" method="_on_Key_gui_input"]
 [connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key40" to="Container/ScrolledKeyboard/Keyboard/Key40" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key38" to="Container/ScrolledKeyboard/Keyboard/Key38" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key37" to="Container/ScrolledKeyboard/Keyboard/Key37" method="_on_Key_gui_input"]
 [connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key35" to="Container/ScrolledKeyboard/Keyboard/Key35" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key34" to="Container/ScrolledKeyboard/Keyboard/Key34" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key33" to="Container/ScrolledKeyboard/Keyboard/Key33" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key31" to="Container/ScrolledKeyboard/Keyboard/Key31" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key30" to="Container/ScrolledKeyboard/Keyboard/Key30" method="_on_Key_gui_input"]
 [connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key28" to="Container/ScrolledKeyboard/Keyboard/Key28" method="_on_Key_gui_input"]
 [connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key26" to="Container/ScrolledKeyboard/Keyboard/Key26" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key25" to="Container/ScrolledKeyboard/Keyboard/Key25" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key23" to="Container/ScrolledKeyboard/Keyboard/Key23" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key21" to="Container/ScrolledKeyboard/Keyboard/Key21" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key19" to="Container/ScrolledKeyboard/Keyboard/Key19" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key18" to="Container/ScrolledKeyboard/Keyboard/Key18" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key16" to="Container/ScrolledKeyboard/Keyboard/Key16" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key14" to="Container/ScrolledKeyboard/Keyboard/Key14" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key15" to="Container/ScrolledKeyboard/Keyboard/Key15" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key17" to="Container/ScrolledKeyboard/Keyboard/Key17" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key20" to="Container/ScrolledKeyboard/Keyboard/Key20" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key22" to="Container/ScrolledKeyboard/Keyboard/Key22" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key24" to="Container/ScrolledKeyboard/Keyboard/Key24" method="_on_Key_gui_input"]
 [connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key27" to="Container/ScrolledKeyboard/Keyboard/Key27" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key33" to="Container/ScrolledKeyboard/Keyboard/Key33" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key29" to="Container/ScrolledKeyboard/Keyboard/Key29" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key32" to="Container/ScrolledKeyboard/Keyboard/Key32" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key34" to="Container/ScrolledKeyboard/Keyboard/Key34" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key36" to="Container/ScrolledKeyboard/Keyboard/Key36" method="_on_Key_gui_input"]
 [connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key39" to="Container/ScrolledKeyboard/Keyboard/Key39" method="_on_Key_gui_input"]
 [connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key41" to="Container/ScrolledKeyboard/Keyboard/Key41" method="_on_Key_gui_input"]
-[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key47" to="Container/ScrolledKeyboard/Keyboard/Key47" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key44" to="Container/ScrolledKeyboard/Keyboard/Key44" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key46" to="Container/ScrolledKeyboard/Keyboard/Key46" method="_on_Key_gui_input"]
+[connection signal="gui_input" from="Container/ScrolledKeyboard/Keyboard/Key48" to="Container/ScrolledKeyboard/Keyboard/Key48" method="_on_Key_gui_input"]

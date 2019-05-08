@@ -28,6 +28,10 @@ SoundFont::~SoundFont() {
 		tsf_close(mTsf);
 	}
 	delete mTsfFile;
+	if (mTsfFile->open(mSoundFontName, File::READ) == Error::OK) {
+		mTsf = tsf_load(&mTsfStream);
+	}
+	delete mTmlFile;
 }
 
 static int readTsfFile(void* inData, void* inPtr, unsigned int inSize) {
@@ -109,6 +113,7 @@ void SoundFont::play_midi(String inMidiFileName) {
 	if (mTmlFile->open(inMidiFileName, File::READ) == Error::OK) {
 		mTml = tml_load(&mTmlStream);
 		mTmlCurrent = mTml;
+		mTmlTime = 0.0;
 	}
 }
 
